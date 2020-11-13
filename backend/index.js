@@ -8,7 +8,7 @@ app.get('/', async (req, res) => {
         console.log(req.query.url)
         const url = decodeURIComponent(req.query.url)
         console.log(url)
-        const chrome = await chromeLauncher.launch({chromeFlags: ['--headless', '--no-sandbox','--disable-gpu']});
+        const chrome = await chromeLauncher.launch({chromeFlags: ['--headless', '--no-sandbox','--disable-gpu','--performance']});
         const options = {logLevel: 'info', output: 'html', port: chrome.port};
         const runnerResult = await lighthouse(url, options);
 
